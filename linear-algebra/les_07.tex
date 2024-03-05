@@ -1,0 +1,82 @@
+\lesson{7}{}{}
+
+\section{Basis and dimension theory}
+Keep thinking back to $\R^{n}$
+
+\begin{definition}[Basis of V]
+	Let $V$ be a vector space. A subset $B \subseteq V$ is a basis of $v$ if $B$ is:
+	\begin{itemize}
+		\item linearly independent 
+		\item and spans $V$
+	\end{itemize}
+	\end{definition}
+
+\begin{eg}
+	Let $V= M_{m,n}$. This is a vector space. The standard basis is the set
+	 \[
+		 \left\{ E_{ij} \mid 1 \le i\le m, 1\le j,+n \right\} 
+	.\] where $E_{ij}$ is the matrix with $0$'s everywhere except in $(i,j)^{th}$ entry where it equals 1.
+	
+	For example, in the case $M_{22}$ we have
+	\[
+		\left\{ \begin{pmatrix} 1 & 0 \\ 0 & 0 \end{pmatrix}, \begin{pmatrix} 0 & 1\\ 0 & 0 \end{pmatrix}, \begin{pmatrix} 0 &0 \\ 1 &0 \end{pmatrix}, \begin{pmatrix} 0 &0 \\ 0&1 \end{pmatrix}    \right\} 
+	\] 
+	Linear independece is clear. We can show it spans $M_{22}$ 
+	\[
+		\text{Span: } a\begin{pmatrix} 1 & 0\\ 0 & 0 \end{pmatrix} + b\begin{pmatrix} 0 & 1\\ 0 & 0 \end{pmatrix} + c\begin{pmatrix} 0 & 0\\ 1 & 0 \end{pmatrix} + d\begin{pmatrix} 0 & 0\\ 0 & 1 \end{pmatrix} = \begin{pmatrix} a &b \\ c&d \end{pmatrix} \in M_{22} 
+	\] 
+\end{eg}
+
+\begin{eg}
+	Let $V=\R^{n}$. The standard basis $\{e_{1},e_{2},\ldots,e_{n}\}$.
+\end{eg}
+
+\begin{eg}
+	Let $V\le \R^{5}$ be the space of vectors $\left( x_1,\ldots,x_5 \right) $ such that
+	\begin{align*}
+		x_1 + x_2 - x_3 + x_5 &= 0\\
+		x_1 + 2x_2 + x_4 + 3x_5 &= 0 \\
+		x_2 + x_3 + x_4 + 2x_5 &= 0 
+	.\end{align*}
+	We write this system as
+	\[
+		\begin{pmatrix} 
+			1 & 1 & -1 & 0 & 1\\
+			1 & 2 & 0 & 1 & 3\\
+			0 & 1 & 1 & 1 & 2
+		\end{pmatrix} 
+	\] 
+	Placing this in reduced row echelon form gives:
+	\[	
+	\begin{pmatrix} 
+		1 & 0 & -2 & -1 & -1\\
+		0 & 1 & 1 & 1 & 2\\
+		0 & 0 & 0 & 0 & 0
+	\end{pmatrix}
+	\] 
+	Assign parameters $\alpha,\beta, \gamma$ to $ x_3,x_4,x_5$ :
+	\begin{align*}
+		\left( x_1,x_2,x_3,x_4,x_5 \right) &= \left( 2\alpha + \beta+\gamma,-\alpha-\beta-2\gamma,\alpha,\beta,\gamma \right)\\
+										   &= \alpha\left( 2,-1,1,0,0 \right) +\beta\left( 1,-1,0,1,0 \right) +\gamma\left( 1,-2,0,0,1 \right) 
+	\end{align*}
+	Hence a basis for $V$ is $\left\{ \left( 2,-1,1,0,0 \right) , \left( 1,-1,0,1,0 \right) ,\left( 1,-2,0,0,1 \right)  \right} $
+	\end{eg}
+
+\begin{prop}
+	Let $V$ be a finite-dimensional vector space, $V \neq \left\{ 0_{v} \right\} $. Suppose $S=\left\{ v_1,\ldots,v_s \right} $ is a spanning set of $V$. Moreover, if $L \subseteq S$ in any linearly independent set then we can choose $B$ to contain $L$.	
+\end{prop}
+\begin{proof}
+	We only prove the final statement, since the rest follows by setting $L=\O$. Let $B \subseteq S$ be a maximal subset containing $L$, such that $B$ is linearly independent. We claim $B$ is a basis. We need to show $\langle B \rangle = V$. Suppose not. Hence $\exists v_{i} \not\in \langle B \rangle $. But then $B \cup \left\{ v_{i} \right\} $ is a strictly larger linearly independent set.
+
+	To show $B \cup \left\{ v_{i} \right\} $ is linearly independent:
+	\[
+	\lambda v_{i} + \sum_{}^{} \mu_{j}b_{j} = 0_{v}
+\] with $b_{j} \in B$ and $\lambda,\mu_{j} \in \R$ is a dependence relation.
+
+	If $\lambda = 0$ this contradicts $B$ being linearly independent. Hence $\lambda\neq 0$. So
+	\[
+	v_{i} = \frac{1}{\lambda}\sum_{}^{} \mu_{j}b_{j}
+	\] 
+	But this would mean that $v_{i} \in  \langle b \rangle$, again resulting in a contradiction
+\end{proof}
+

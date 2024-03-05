@@ -1,0 +1,78 @@
+
+\setcounter{chapter}{4}
+\chapter{Differentiation}
+
+
+	\section{Basic Definitions and Examples}
+
+	\begin{definition}[A function being differentiable at x_0]
+		Let I be a non-degenerate interval (i.e. containing more than one point) in \R, $x_0 \in I$ and let  $f:I\to \R$ be a function. We say that $f$ is \emph{differentiable} at $x_0$ if the limit
+		\[
+		\lim_{x \to x_0} \frac{f\left( x \right) - f\left( x_0 \right) }{x-x_0} = f^{`}\left( x_0 \right)		
+	\] 
+	exists and is finite. This limit $f^{`}\left( x_0 \right) $ is then called the derivative of $f$ at $x_0$. (In the case where $x_0$ is an endpoint of I this is a one-sided limit)
+	\end{definition}
+
+	\begin{definition}
+		Let I be an interval in $\R$, $X_0 \in I$ and let $f:I \to  \R$ be a function. We say that f is differentiable at $x_0$ from the left if the limit
+		\[
+			\left( left \: derivative \right) = \lim_{x \to x_0^{-}}  \frac{f\left( x \right) - f\left( x_0 \right) }{x - x_0}
+		.\] 
+		exists and is finite. Similarly, $f$ is differentiable at $x_0$ from the right if the limit
+		\[
+			\left( right \: derivative \right) = \lim_{x \to x_0^{+}} \frac{f\left( x \right) - f\left( x_0 \right) }{x-x_0}
+		.\] 
+		exists and is finite.
+	\end{definition}
+
+	\begin{theorem}[Chain Rule]
+		Let $I, J \subseteq \R$ be intervals and $f:I \to \R$, $g:J \to \R$ functions such that $f\left( I \right) \subset J$. Assume that $f$ is differentiable at $x_0 \in I$ and $g$ is differentiable at $f\left( x_0 \right) $. Then $g \circ f$ is differentiable at $x_0$ and $\left( g \circ f \right)^{'}\left( x_0 \right) = g^{'}\left( f\left( x_0 \right)  \right) f^{'\left( x_0 \right) } $.
+	\end{theorem}
+
+	\begin{proof}
+		Since $f$ is differentiable at $x_0$, there is a (chord function) $\hat{f}:I \to \R$ such that $\hat{f}$ is continious at $x_0$, 
+	\begin{equation}
+				f\left( x \right)  - f\left( x_0 \right) = (x-x_0) \hat{f}\left( x \right) 
+	\end{equation}
+		 for all $x$ in $I$, and
+		\[
+		\hat{f}\left( x_0 \right) = f^{'}\left( x_0 \right) 
+		\] 
+		Since $g$ is differentiable at $f\left( x_0 \right) $, there is a (chord function) $\hat{g}:J \to \R$ such that $\hat{g}$ is continious at $f\left( x_0 \right) $,
+		\begin{equation}
+			g\left( y \right) - g\left( f\left( x_0 \right)  \right) = \left( y-f\left( x_0 \right)  \right) \hat{g}\left( y \right) 
+		\end{equation} for all $y$ in $J$ and
+		\[
+			\hat{g}\left( f\left( x_0 \right)  \right) = g^{'}\left( f\left( x_0 \right)  \right) 
+		.\] 
+		\textbf{Can we find a suitable chord function $g \circ f$?}
+
+		Set $ h\left( x \right) = g\left( f\left( x_0 \right)  \right) $  $\left( x \in I \right) $ and so $h=g \circ f$.
+		We are looking for a chord function $\hat{h}:I \to  \R$ such that
+		\begin{itemize}
+			\item $\hat{h}$ is continious at $x_0$ 
+			\item $h\left( x \right) - h\left( x_0 \right) = \left( x-x_0 \right) \hat{h}\left( x \right) $ $\left( x \in  I \right) $
+		\end{itemize}
+		\textbf{If we can do this, what we know about chord functions tells us h is differentiable at $x_0$, and}
+		\begin{align*}	
+			\text{We have } h\left( x \right) - \left( x_0 \right) &=g\left( f\left( x \right)  \right) - g\left( f\left( c_0 \right)  \right) \\
+			\left( \text{Apply (2) with } y=f\left( x \right)  \right) \\
+			&= \left( f\left( x \right) -f\left( x_0 \right)  \right) \hat{g}\left( f\left( x \right)  \right) \\
+			&= \left( x-x_0 \right) \hat{f}\left( x \right) \hat{g}\left( f\left( x \right)  \right)\\
+			&= \left( x-x_0 \right) \hat{f}\left( x \right) \hat{g}\left( f\left( x \right)  \right) 
+		\end{align*}	
+		Claim $\hat{h}\left( x \right) = \hat{f}\left( x \right) \hat{g}\left( f\left( x \right) \right) $ works.
+
+		$\hat{f}$ is continious at $x_0$ because $f$ is differentiable at $x_0$ (see above). $\hat{f}\left( x_0 \right) = f^{'}\left( x_0 \right) $. Since $f$ is differentiable at $x_0$, we also have $f$ is continious at $x_0$. Since $\hat{g}$ is continious at $f\left( x_0 \right) $ with $\hat{g}\left( f\left( x_0 \right)  \right) = g^{'}\left( f\left( x_0 \right)  \right) $ is continious at $x_0$ 
+		\textbf{Conclusion:}
+		$h = g \circ f$ is differentiable at $x_0$,
+		and 
+		\begin{align*}
+			h^{'}\left( x_0 \right) &= \hat{h}(x_0)\\
+						&= \hat{f}\left( x_0 \right) \hat{g}\left( f\left( x_0 \right) \right)\\
+						&= fdt'\left( x_0 \right) g^{'}\left( f\left( x_0 \right)  \right).
+		\end{align*}	
+
+	\end{proof}
+
+	\end{document}

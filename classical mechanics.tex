@@ -1,0 +1,99 @@
+% Created 2024-02-03 Sat 15:24
+% Intended LaTeX compiler: pdflatex
+\documentclass[letterpaper, 11pt]{article}
+                      \usepackage{lmodern} % Ensures we have the right font
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{amsmath, amsthm, amssymb}
+\usepackage[table, xcdraw]{xcolor}
+\definecolor{bblue}{HTML}{0645AD}
+\usepackage[colorlinks]{hyperref}
+\hypersetup{colorlinks, linkcolor=blue, urlcolor=bblue}
+\usepackage{titling}
+\setlength{\droptitle}{-6em}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{1em}
+\usepackage[stretch=10]{microtype}
+\usepackage{hyphenat}
+\usepackage{ragged2e}
+\usepackage{subfig} % Subfigures (not needed in Org I think)
+\usepackage{hyperref} % Links
+\usepackage{listings} % Code highlighting
+\usepackage[top=1in, bottom=1.25in, left=1.55in, right=1.55in]{geometry}
+\renewcommand{\baselinestretch}{1.15}
+\usepackage[explicit]{titlesec}
+\pretitle{\begin{center}\fontsize{20pt}{20pt}\selectfont}
+\posttitle{\par\end{center}}
+\preauthor{\begin{center}\vspace{-6bp}\fontsize{14pt}{14pt}\selectfont}
+\postauthor{\par\end{center}\vspace{-25bp}}
+\predate{\begin{center}\fontsize{12pt}{12pt}\selectfont}
+\postdate{\par\end{center}\vspace{0em}}
+\titlespacing\section{0pt}{5pt}{5pt} % left margin, space before section header, space after section header
+\titlespacing\subsection{0pt}{5pt}{-2pt} % left margin, space before subsection header, space after subsection header
+\titlespacing\subsubsection{0pt}{5pt}{-2pt} % left margin, space before subsection header, space after subsection header
+\usepackage{enumitem}
+\setlist{itemsep=-2pt} % or \setlist{noitemsep} to leave space around whole list
+\author{Hasib Ali}
+\date{}
+\title{Applied Mathematics\\\medskip
+\large \emph{Spring 2024}}
+\hypersetup{
+ pdfauthor={Hasib Ali},
+ pdftitle={Applied Mathematics},
+ pdfkeywords={},
+ pdfsubject={},
+ pdfcreator={Emacs 29.2 (Org mode 9.6.15)}, 
+ pdflang={English}}
+\begin{document}
+
+\maketitle
+\tableofcontents
+
+\clearpage
+
+\section{Classical Mechanics}
+\label{sec:orga2e70bd}
+\subsection{Modelling in Classical Mechanics}
+\label{sec:org9a7f205}
+
+\textbf{To model:} Trying to simplify, understand and predict measurements
+\begin{itemize}
+\item Trade off between accuracy and simplicity (i.e. the more details you represent with your model the greater the accuracy of the model, however the complexity of the model also increase and it becomes less generalisable.
+\item Range of Validity. (i.e for what assumptions is the model valid for, more details leads to a smaller range of validity
+\end{itemize}
+
+\textbf{Typical Steps:}
+\begin{enumerate}
+\item Derive a mathematical model
+\item Solve the problem - analytically/computationally
+\item Interpret the results
+\end{enumerate}
+
+\textbf{Toolbox of Classical Mechanics}
+\begin{itemize}
+\item Ordinary differential equations i.e. \(\frac{\mathrm{d}^{2} }{\mathrm{d} t^{2}} \vec{r}(t) = F(\vec{r}(t), \frac{\mathrm{d} }{\mathrm{d} t} \vec{r}(t),t)\) with given initial conditions \(\vec{r}(0) = r_{0}\), \(\frac{\mathrm{d} }{\mathrm{d} t} \vec{r}(0) = v_{0}\)
+\end{itemize}
+
+\subsection{Examples of Simple Forces}
+\label{sec:orge88f7f1}
+\begin{enumerate}
+\item Throwing a ball vertically upwards i.e. \(m \frac{\mathrm{d}^{2} }{\mathrm{d} t^2} = - gm\)
+\item Throwing a ball vertically upwards withought gravity i.e.  \(m \frac{\mathrm{d}^{2} }{\mathrm{d} t^2} = 0\)
+\item Throwing a ball in 2D i.e. \(m\ddot{z}=g\), \(m\ddot{x}=0\)
+\item Throwing a ball in 2D with drag (linear, so withought turbulence) i.e. \(m\ddot{z}=-mg-\gamma \dot{z}\), \(m\ddot{x}=0-\gamma \dot{x}\)
+\end{enumerate}
+
+\subsection{Non-dimensionlisation}
+\label{sec:org00b9d2d}
+\textbf{Example:}
+\[
+m \frac{\mathrm{d}^{2} }{\mathrm{d} t^{2}} x = -\gamma \frac{\mathrm{d} }{\mathrm{d} t} x \]
+\[
+m \frac{\mathrm{d}^{2} }{\mathrm{d} t^{2}} z = -\gamma \frac{\mathrm{d} }{\mathrm{d} t} z -mg \]
+
+Aim:
+Use \(\tilde{x},\tilde{z},\tilde{t}\) instead, where these new variables are defined in such a way as to get rid of or reduce the number of free model variables ( \(m,\gamma,g\) )
+
+Introduce dimensionless variables:
+\end{document}

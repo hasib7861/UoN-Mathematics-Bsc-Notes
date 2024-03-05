@@ -1,0 +1,150 @@
+\lesson{9}{}{}
+\begin{corollary}
+	Let $V$ be a finite-dimensional vector space. Any two bases are	finite and have the same number of elements.
+\end{corollary}
+\begin{proof}
+	$V$ being finite dimensional implies there exists a finite basis of $v_1$, say $B_1$. (Proposition 4.23).
+
+	Let $B_2$ be another basis of $V$. Recall that this means both $B_1$ and $B_2$ are spanning and are linearly independent. 
+	\[
+	\left \begin{array}{11}
+			 B_2 \text{ is linearly independent} \\
+			 \langle B_1 \rangle = V
+	 \end{array} \right\} \implies \mid B_2 \mid \le \mid B_1 \mid
+	\]
+	\[
+	 \left \begin{array}{11}
+			B_1 \text{ is linearly independent} \\
+			\langle B_2 \rangle = V
+	\end{array} \right\} \implies \mid B_1 \mid \le  \mid B_2 \mid
+	
+	\begin{align*}
+		\implies \mid B_1\mid = \mid B_2 \mid
+	\end{align*}
+		\]
+		In particular, $B_2$ is also finite since $B_1$ is finite.
+\end{proof}
+
+\begin{definition}[Dimension of $V$]
+	Let $V$ be a finite-dimensional vector space. The dimension of $V$ is defined to be dim$\left( V \right) := |B|$ for some basis $B$ of $V$ 
+\end{definition}
+
+\begin{eg}
+	\begin{align*}
+		S :&= \left\{ \left( 0,1,2,3 \right) ,\left( 1,2,3,4 \right) ,\left( 2,3,4,5 \right)  \right\} \\
+		   &= \left\{ r_1,r_2,r_3 \right\} \text{ where } r_1,r_2,r_3 \subseteq \R^4
+	\end{align*}
+	\[
+		A = \begin{pmatrix} 0 &1&2&3\\
+		1&2&3&4\\
+		2&3&4&5
+	\end{pmatrix} \in M_{34}
+	\] 
+	\begin{align*}
+		\text{Then the Rowspan}\left( A \right) &= \langle S \rangle \subseteq  \R^4 \\
+												&= \langle r_1,r_2,r_3 \rangle
+	.\end{align*}
+	\[
+		\text{RRE}\left( A \right) = \begin{bmatrix} -1 & -1 & 1\\
+		1 & 0 & 0\\
+	1 & -2 & 1
+ \end{bmatrix}
+ A = \begin{bmatrix}
+			1&0&-1&-2\\
+			0&1&2&3\\
+			0&0&0&0
+		\end{bmatrix} = \begin{bmatrix} r_1^{'}\\ r_2^{'}\\ 0 \end{bmatrix} 
+	
+		\left \begin{array}{ll}
+			r_1^{'}=\left( 1,0,-1,-2 \right) =-r_1-r_2+r_3 \\
+			r_2^{'}=\left( 0,1,2,3 \right) = r_1
+	\end{array} \right\} S^{'}:=\left\{ r_1^{'},r_2^{'} \right\} 
+		\]
+		\begin{align*}
+			\implies &\langle S^{'} \rangle \subseteq \langle S \rangle\\
+					 &\langle r_1^{'},r_2^{'} \rangle \subseteq \langle r_1,r_2,r_3 \rangle
+		\end{align*}
+
+		\begin{align*}
+			\begin{bmatrix} r_1 \\r_2\\r_3 \end{bmatrix} = A &= \begin{bmatrix} -1&-1&1\\1&0&0\\1&-2&1 \end{bmatrix}^{-1} \text{RRE}\left( A \right) \\
+															 &= \begin{bmatrix} 0&1&0\\1&2&-1\\2&3&-1 \end{bmatrix} \begin{bmatrix} r_1^{'}\\r_2^{'}\\0 \end{bmatrix}  
+		\end{align*}
+		\[
+			\left \begin{array}{111} 
+					r_1 = r_2^{'}\\
+					r_2 = r_1^{'} +2r_2^{'}\\
+					r_3 = 2r_1^{'}+3r_2^{'}
+			\end{array} \right\} \implies \langle S \rangle \le  \langle S^{'} \rangle
+		\]	
+		\begin{align*}
+			\implies \langle S \rangle &= \langle S^{'} \rangle
+		\end{align*}
+	Notice that $\left\{ r_1^{'},r_2^{'} \right\}$ is spanning $\langle S \rangle$. Notice that if 
+	 \[
+		 \lambda_1 r_1^{'} + \lambda_2 r_2^{'} = \underline{0}\\
+		 = \left( \lambda_1, \lambda_2,-\lambda_1 +2\lambda_2,-2\lambda_1 +3\lambda_2 \right) =\underline{0}
+	 \]
+	\[
+		\implies \lambda_1 =\lambda_2 =0
+	\]
+	So $\left\{ r_1^{'},r_2^{'} \right\} $ is linearly independent. That is, $\left\{ r_1^{'}, r_2^{'} \right) = S^{'}$ is a basis of Rowspan$\left( A \right)^{'}$. Hence, dim Rowspan$\left( A \right) = 2$.
+	\end{eg}
+
+	\begin{eg}[Generalisation]
+		Let $A \in M_{nn}$
+		\[
+			\text{RRE}\left( A \right) = BA= \begin{bmatrix} r_1^{'}\\\vdots\\r_k^{'}\\0\\ \vdots\\0 \end{bmatrix} \text{  with }r_1^{'} \neq \underline{0},\ldots,r_k^{'}\neq \underline{0} 
+		\]
+		Like above we have Rowspan$\left( A \right) = \langle r_1^{'},\ldots,r_k^{'} \rangle$
+		\begin{align*}
+			\text{row rank of }A \text{ }&= \text{ dim Rowspan}\left( A \right)\\
+										 &= \text{ #non-zero rows in RRE}\left( A \right) \\
+										 &= k
+		\end{align*}
+	\end{eg}
+
+	\section{Subspaces and Dimension Theory}
+
+	\begin{prop}
+		Let $V$ be a finite-dimensional vector space and $U \le V$ is a subspace.
+		Then
+		\begin{itemize}
+			\item $U$ is finite-dimensional 
+			\item dim $U \le $ dim $V$
+		\end{itemize}
+		Furthermore, if dim $U =$ dim $V$, then $U=V$. 
+	\end{prop}
+	\begin{proof}
+		Let $S \subseteq U$ be the largest linearly independent subset. Let $B$ be a basis of $V$, say $B$ with $|B|=n = \text{dim}\left( V \right) $ 
+	\[
+	\left 
+	\begin{array}{11}
+		S \subseteq V \text{ is linearly independent.}\\
+		\langle B \rangle = V
+\end{array} \right\} \implies |S| \le |B|
+	\]
+	Assume towards a contradiction that $\langle S \rangle \not\subseteq U $. Then there exists $u \in U\ \langle S \rangle$
+
+	\hfill
+
+	\noindent\underline{\textbf{Claim:}} $S \cup \left\{ u \right\} $ is linearly independent.	
+	\begin{proof}
+		Say $S = \left\{ s_1,\ldots,s_k \right\}$. \newline Let $\lambda_1,\ldots,\lambda_k,\lambda \in \R$ such that $\lambda_1 s_1 +\ldots+ \lambda_k s_k +\lambda u = \underline{0}$. There are two cases:
+		\begin{itemize}
+			\item $\lambda = 0$ 
+				\[
+				\implies u = \frac{-1}{\lambda}\left( \lambda_1 s_1 +\ldots+ \lambda_k s_k \right) \in \langle S \rangle
+			\] which is a contradiction.
+		\item $\lambda \neq 0$ 
+			\begin{align*}
+				\implies \underline{0} &=  \lambda_1 s_1+\ldots+\lambda_k s_k + \lambda_u \text{ where } \lambda_u = 0\\ 
+									   &=\lambda_1 s_1+\ldots+ \lambda_k s_k
+			\end{align*} Since $s_1,\ldotss_k$ are linearly independent so $\lambda_1=\ldots=\lambda_k =0$ That is all coefficients are zero.
+		\end{itemize}
+	\end{proof}	
+		Hence, $S \not\subseteq S \cup \left\{ u \right\} $ is linearly independent. This is a contradiction to S being maximal, which implies $U = \langle S \rangle$ and $S$ is a basis of $U$, which implies dim$\left( U \right) =  |S| \le |B| =n=\text{dim}\left( V \right) $
+	
+	\end{proof}
+
+
+

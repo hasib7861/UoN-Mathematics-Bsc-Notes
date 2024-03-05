@@ -1,0 +1,67 @@
+\lesson{8}{}{}
+\begin{prop}
+	Let $V$ be a finite-dimensional vector space, $V \neq  \left\{ 0_{v} \right\} $. Suppose $S = \left\{ v_1,\ldots,v_s \right\} $ spans V. Then $\exists$ basis $B \subseteq S$. If $L \subseteq S$ in linearly independent then we can arrange for $L \subseteq B \subseteq S$. 
+\end{prop}
+
+\begin{remark}
+	Says that every finite-dimensional vector space has a basis.
+\end{remark}
+
+\begin{lemma}[Steinitz Exchange Lemma]
+	Let $V$ be a vector space. Let $X = \left\{ v_1,..,v_N \right) \subseteq V$. Suppose $u \in \langle X \rangle$, but $u \not\in  \langle X \ \left\{ v_i \right\} \rangle $ fro some $1\le i\le n$. Then let $Y = \left( X \ \left\{ v_i \right\}  \right) \cup \left\{ u \right\} $. We have $\langle Y \rangle = \langle X \rangle$.
+\end{lemma}
+
+\begin{proof}
+	\begin{itemize}
+		\item Since $u \in \langle X\rangle \exists  \lambda_1,\ldots,\lambda_n \in \R$ such that
+			\begin{equation}
+				u = \lambda_1 v_! +\ldots+ \lamda_n v_n
+			\end{equation}
+			By assumtion we have $u \not\in \langle X \ \left\{ v_i  \right\} \rangle $. Withought loss of generality assume $i=n$. Since $u \not\in \langle X \ \left\{ v_i  \right\} \rangle $, so $\lamda_n \neq  0$. Rearranging $\left( 1 \right) $ we get
+			\begin{equation}
+				v_n = \frac{1}{\lambda_n} \left( u-\lambda_1 v_1 - \ldots - \lambda_{n-1} v_{n-1} \right) 
+			\end{equation}
+		\item Let $w \in \langle Y \rangle$. We can express $w$ as a linear combination of $v_1,\ldots,v_{n-1},u$. We can replace $u$ with $\left( 1 \right) $, hence write $w$ as a linear combination of $v_1,\ldots,v_{n-1},v_n$. Hence $w \in  \langle X \rangle$. So $\langle Y \rangle \subseteq \langle X \rangle$.
+		\item Let $w \in \langle X \rangle$. Then we have an expression for $w$ as a linear combination of $v_1,\ldots,v_{n}$. By $\left( 2 \right) $ we can replace $v_n$ with a linear combination of $v_1,\ldots,v_{n-1},k$. Hence $w \in  \langle Y \rangle$. So $\langle X \rangle \subseteq \langle Y \rangle$.
+	\end{itemize}
+\end{proof}
+
+\begin{eg}
+	Let $V = \R^{3}$. $B = \left\{ e_1,e_2,e_3  \right\}$ the standard basis. Let $u=2e_1-3e_2$. The Steinitz Exchange Lemma tells us
+	\begin{align*}
+		B_1=\left\{ u,e_2,e_3 \right\} & & B_2+\left\{ e_1,u,e_3 \right\} 
+	\end{align*}
+	both span $V$. (You should check this later!)
+
+	Although the Steinitz Exchange Lemma says nothing about linear independence, infact both $B_1,B_2$ are.
+	Hence $B_1,B_2$ are bases for $V$. (Again check this!)
+	
+	What abut if we exchange $e_3$ for $u$?
+	\[
+		\text{i.e. } \left\{ e_1,e_2,u \right\} = \left\{ \left( 1,0,0 \right) ,\left( 0,1,0 \right) ,\left( 2,-3,0 \right)  \right\} 
+\] Since the third coordinate is zero, this cannot span $V$.
+\end{eg}
+
+\begin{theorem}
+	Let $V$ be a vector space and $S,T \subseteq V$ are finite subsets. If $S$ is linearly independent and if $\langle T \rangle = V$, then $\mid S \mid \le  \mid T \mid$.
+\end{theorem}
+\begin{proof}
+	\begin{itemize}
+		\item Let $S = \left\{ u_1,\ldots,u_m \right\} $, $T=\left\{ v_1,\ldots,v_n \right\} $
+		\item We will use Steinitz Exchange Lemma to swap elements of $T$ for those in $S$. This will finish exhausting $S$, hence $\mid S \mid \le \mid T \mid$.
+		\item Let $T_0=\left\{ v_1,\ldots,vn \right\} $. We have $ \langle T_0 \rangle = V_1$, so $u_1 \in  \langle v_1,\ldots,v_i \rangle$ but $u_1 \not\in  \langle v_1,\ldots,v_{i-1} \rangle$. By the Steinitz Exchange Lemma,
+			\[
+			\langle v_1,\ldots,v_i \rangle = \langle u_1,v_1,\ldots,v_{i-1} \rangle.
+			\]
+			Hence $V= \langle u_1,v_1,\ldots,v_{i-1},v_{i+1},\ldots,v_n \rangle$ withought loss of generality we can relable the $v_j$ to get $u_1$ has been exchanged for $v_1$e set 
+			\begin{align*}
+				T_1=\left\{ u_1,v_2,\ldots,v_n \right\}, & & \langle T_1 \rangle = V.
+			\end{align*}
+		\item Proceeding by induction we have
+			\begin{align*}
+					T_k = \left\{u_1,\ldots,u_k,v_{k+1},\ldots,v_{n}  \right\}, & & \langle T_k \rangle = V.
+			\end{align*}
+		\item At each stage $u_{k+1} \in \langle T_{k} \rangle$, but $u_{k+1} \not\in \langle u_1,\ldots,u_k \rangle$ because $S$ is linearly independent. Hence we continue to make subsitution. This can only terminate when $S$ is exhausted, $m \le n$.
+		\item Hence $ \mid S \mid \le  \mid T \mid$.
+				\end{itemize}
+\end{proof}

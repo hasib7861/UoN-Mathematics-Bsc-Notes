@@ -1,0 +1,79 @@
+\lesson{10}{}{}
+\begin{prop}
+	Let $V$ be a finite-dimensional vector space, $U \le V$. Then $U$ is finite-dimensional, dim $U \le $ dim $V$. If dim $U = $ dim $V$ then $U=V$.
+\end{prop}
+\begin{proof}
+	Above we proved the first part. Suppose now that dim $U = $ dim $V$, and $U \neq V$. Then there exists some $v \in V \ U$. Given any basis $\left\{ u_1,\ldots,u_n \right\} $ for $U$, $n=$dim$\left( U \right) =$dim$\left( V \right)$, we have $ u_1,\ldots,u_n,v$ is linearly independent. Let $W = \langle u_1,\ldots,u_n,v \rangle$. Then dim$\left( W \right) =$dim$\left( U \right) +1 =$dim$V+1$. This is a contradoction.
+\end{proof}
+
+\begin{theorem}[Dimension Formula]
+	Let $V$ be a finite-dimensional vector space. Let $U,W \le V$ be subspaces. Then
+	\[
+	\text{dim}\left( U+W \right) + \text{dim}\left( U \cap W \right) = \text{dim}\left( U \right) + \text{dim}\left( W \right) 
+	\] 
+\end{theorem}
+
+\begin{eg}
+	Suppose $V=\R_3$, $U= \langle \left( 1,0,0 \right) \rangle$, $W= \langle \left( 1,0,1 \right) \rangle$. Have dim$\left( U \right) = 1$, dim$W=1$.
+	\[
+		U \cap W = \langle \left( 1,0,0 \right) \rangle \cap \langle \left( 1,0,1 \right) \rangle = \left\{ \underline{0} \right\}
+	\] Hence dim$\left( U \cap W=0 \right) $. By the dimension formula
+	\begin{align*}
+		\text{dim}\left( U+W \right) &= \text{dim}\left( U \right) + \text{dim}\left( W \right) - \text{dim}\left( U \cap W \right) \\
+									 &= 1+1-0\\
+									 &= 2
+	\end{align*} \end{eg}
+
+\begin{proof}
+	Let $\left\{ v_1,\ldots,v_m \right\}$ be a basis for $U \cap W$. Have $U \cap W$. Have $U \cao W \le  U$, $U \cap W \le W$. We can extend our basis to give a basis
+	\[
+		\left\{ v_1,\ldots,v_m,u_1,\ldots,u_p \right) \text{ of } U
+	\] \[
+	\left\{ v_1,\ldots,v_m,w_1,\ldots,w_q \right\} \text{ of } W
+	\]
+
+	Hence dim$\left( U \right) = m+p$, dim$\left( W \right) = m+q$
+	\[
+	\text{dim}\left( U \cap W \right) =m
+	\]
+	We claim $S = \left\{ v_1,\ldots,v_m,u_1,\ldots,u_p,w_1,\ldots,w_q \right\}$ is a basis for $U + W$. Hence dim$\left( U+W \right) =m+p+q$ as required.
+\[ \] 
+\noindent \underline{\textbf{Spanning:}}
+
+\noindent Take $x \in U+W$. Then x = u+w, for some $u \in U$, $w \in W$.
+\[
+u = a_1 v_1 + \ldots +a_m v_m +a_1' u_1 +\ldots+ a_p' u_p
+\]\[
+w = b_1 v_1 + \ldots + b_m v_m +b_1' w_1 +\ldots+ b_q' w_q
+\] for some $a_i,a_i', b_i,b_i' \in \R$. Then 
+\begin{align*}
+	x &= u+w \\
+	  &= \left( a_1 +b_1 \right) v_1+\ldots+\left( a_m + b_m \right) v_m + a_1' u_1 +\ldots +a_p' u_p +b_1' w_1 +\ldots+ b_q ' w_1 +\ldots+ b_q' w_q
+\end{align*} 
+Hence $x \in \langle S \rangle$.
+\[ \] 
+\noindent \underline{\textbf{Linear Independence:}}
+
+\noindent Suppose
+\[
+a_1 v_1 + \ldots +a_m v_m+ b_1 u_1 +\ldots + b_p u_p + c_1 w_1 + \ldots + c_q w_q = 0
+\] for some $a_i,b_i,c_i \in  \R$. Have
+\[
+	\left( a_1 v_1 +\ldots+a_m v_m + b_1 u_1 +\ldots +b_p u_p \right) \in U = - \left( c_1 w_1 +\ldots+ c_q w_q \right) \in W
+\] so this lies in $U \cap W$. Since $\left\{ v_1,\ldots,v_m,w_1,\ldots,w_q \right\}$ is a basis of $W$, so
+\[
+c_1=\ldots=c_q=d_1=\ldots=d_m=0
+.\] Hence we have:
+\[
+a_1 v_1 +\ldots+ a_m v_m +b_1 u_1 +\ldots+b_p u_p = 0
+\] Since $\left\{ v_1,\ldots,v_m,u_1,\ldots,u_p \right\} $ is a basis of U, so
+\[
+a_1 = \ldots=a_m =b_1=\ldots=b_p =0
+.\] Hence it is linearly independent.
+\end{proof}
+
+\begin{definition}[Direct Sum]
+	Let $V$ be a vector space $U,W \le V$. If $U \cap W = \left\{ \underline{0} \right\} $ and $U+W=V$. We write $V = U \bigoplus W$ and we say $V$ is the direct sum of $U$ and $W$.
+\end{definition}
+
+
